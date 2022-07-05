@@ -8,10 +8,11 @@
 個人メモ
 
 07/05
-- 1章は、用語の確認のみ＞＞目次から節を消して気になった用語の解説  
-- 2章は、初期設定でSpringを作成してpom.xmlファイルの構成を確認
+- 1章：用語の確認のみ＞＞目次から節を消して気になった用語の解説  
+- 2章：初期設定でSpringを作成してpom.xmlファイルの構成を確認
     - 9章でしか、SpringBootを使わないという衝撃の事実！！
-
+- 3章：bean.xmlを作るときに発生した問題　＞＞　xml内の全てのリンクアドレスを`https`にしないといけない。`http`だと動かない。
+    - ※Springには一つのクラスにつき一つのBean（インスタンス）しか保管できない。>> classリテラルを指定する方法でもインスタンス取得可能
 07/06  
 07/07  
 07/08  
@@ -75,6 +76,30 @@ ITの分野では、利用者の意図や状況、環境などの総体を表し
 Springでは、あらゆるものをBeanとして登録し、利用。Springにはプログラムで必要となるコンポーネントをBeanとしてインスタンス化して利用するための機能がまとめられている。
 
 ## Chapter 3 Dependency Injectionの基本
+bean.xmlを作るときに発生した問題
+全てのアドレスを`https`にしないといけない。`http`だと動かない。
+```java
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- フィールドインジェクションver -->
+    <bean id="mybean1" class="src/main/java/com/example/chapter03/MyBean">
+        <property name="message" value="this is sample bean!"></property>
+    </bean>
+
+    <!-- コンストラクタver -->
+    <bean id="mybean2" class="src/main/java/com/example/chapter03/MyBean">
+        <constructor-arg type="String" name="message" value="this is sample bean!">
+        </constructor-arg>
+    </bean>
+
+    <!-- Additional lines to be added here... -->
+</beans>
+```
+
+※Springには一つのクラスにつき一つのBean（インスタンス）しか保管できない。  
+
 ### 3.1 Beanの利用とDI
 Beanクラスを作成する  
 MyBeanのソースコードを作成する  

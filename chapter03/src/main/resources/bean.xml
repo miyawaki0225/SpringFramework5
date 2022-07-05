@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- フィールドインジェクションver -->
+    <bean id="mybean1" class="src/main/java/com/example/chapter03/MyBean">
+        <property name="message" value="this is sample bean!"></property>
+    </bean>
+
+    <!-- コンストラクタver -->
+    <bean id="mybean2" class="src/main/java/com/example/chapter03/MyBean">
+        <constructor-arg type="String" name="message" value="this is sample bean!">
+        </constructor-arg>
+    </bean>
+
+    <!-- Additional lines to be added here... -->
+</beans>
