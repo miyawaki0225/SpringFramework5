@@ -3,7 +3,7 @@ package com.example.chapter03;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MyBean {
+public class MyBean implements MyBeanInterface {
     private Date date;
     private String message;
 
@@ -24,5 +24,10 @@ public class MyBean {
     @Override
     public String toString(){
         return "MyBean [message="+ message + ", date=" + date + "]";
+    }
+    @Override
+    public String getMessage() {
+        // TODO Auto-generated method stub
+        return message;
     }
 }
