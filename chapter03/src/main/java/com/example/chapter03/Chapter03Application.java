@@ -19,7 +19,16 @@ public class Chapter03Application {
 		//DIフィールドインジェクションver
 		app = new ClassPathXmlApplicationContext("bean.xml");
 		MyBeanInterface bean2 = (MyBeanInterface)app.getBean("mybean2");
-		System.out.println(bean2);
+
+		// ApplicationContext app2 = new ClassPathXmlApplicationContext("bean.xml"){
+		// 	MyBean getBean(String... str){
+		// 		return str.getClass().; 
+		// 	}
+		// };
+
+
+			System.out.println(bean2);
+		// System.out.println(app2.getBean("mybean2"));
 
 		//DIコンストラクタver
 

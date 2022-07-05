@@ -76,6 +76,7 @@ ITの分野では、利用者の意図や状況、環境などの総体を表し
 Springでは、あらゆるものをBeanとして登録し、利用。Springにはプログラムで必要となるコンポーネントをBeanとしてインスタンス化して利用するための機能がまとめられている。
 
 ## Chapter 3 Dependency Injectionの基本
+Beanクラス＞＞インターフェースを作成＞＞
 bean.xmlを作るときに発生した問題
 全てのアドレスを`https`にしないといけない。`http`だと動かない。
 ```java
@@ -99,6 +100,21 @@ xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/
 ```
 
 ※Springには一つのクラスにつき一つのBean（インスタンス）しか保管できない。  
+
+DIでやってること、匿名クラスでクラスリテラル返してる！？
+```java
+//DIフィールドインジェクションver
+// app = new ClassPathXmlApplicationContext("bean.xml");
+// MyBeanInterface bean2 = (MyBeanInterface)app.getBean("mybean2");
+
+ApplicationContext app2 = new ClassPathXmlApplicationContext("bean.xml"){
+    Object getBeanObject(){
+	    return MyBean.class;
+    }
+};
+
+```
+
 
 ### 3.1 Beanの利用とDI
 Beanクラスを作成する  
