@@ -4,39 +4,53 @@
 自分：JDK 11、VSCode
 
 予定：7/10までに一通り用語確認、その後理解が不十分な点を2周目。。。
- 
-- 07/05
+
+個人メモ
+
+07/05
+- １章は用語の確認のみ＞＞目次から節を消して気になった用語の解説  
+
+07/06  
+07/07  
+07/08  
+07/09  
+07/10  
 
 
-- 07/06
-- 07/07
-- 07/08
-- 07/09
-- 07/10
-
-
-# 以下、目次
+# 以下、目次＋簡易メモ
 
 ## Chapter 1 Spring Frameworkの準備
-### 1.1 Spring FrameworkとSTSの準備
-Java開発の複雑さ  
-Spring Frameworkとは？  
-Springの働くところ  
-Spring利用の方法  
-JDKについて  
-STSを準備する  
-Mavenを準備する  
+Sprig:
+- 多数のフレームワークの共同体
+- Dependency Injection(依存性の注入)を行う技術として開発
 
-### 1.2 Spring Tool Suiteの基礎知識
-STSを起動する  
-STSのビューについて  
-ビューを開く  
-パースペクティブについて  
-プロジェクトの作成について  
+SpringFramework
+- 簡単にコンポーネント同士を切り離したり入れ替えたりできる。（疎結合の実現？）
+- AOP:Aspect-OrientedPrograming
 
-1. Javaアプリケーションのプロジェクト
-2. Springの基本的なプロジェクト
-3. Maven利用のSpringプロジェクト
+Dependency Injection
+- 必要なインスタンスをnewしないで代入してもらう方法
+- Bean生成時にコンテナが行う
+- いい感じに引っ張ってきてくれる
+
+DIの例
+```java
+@Conponent
+public class Hoge{
+    private final Fuga fuga;
+
+    @Autowired
+    public Hoge(Fuga fuga){
+        this.fuga = fuga;
+    }
+}
+```
+
+- @Conponent:Spring管理下におくためのアノテーション
+- @Autowired:Spring管理下のオフジェクトの中から、適切なものをセットしてもらうためインスタンス変数に付けるアノテーション
+
+※Spring Bootでは@Component⇒@Controller,@Service,@Repository(３つともComponentを継承)
+
 
 ## Chapter 2 Springプロジェクトの基本
 ### 2.1 Springのコア機能を押さえる
